@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "SeeYear";
+}
+
+
+<div class="card" style="width: 55rem;">
+    <div class="card-body">
+        @using (Html.BeginForm("SeeYear", "Setter"))
+        {
+            @Html.AntiForgeryToken()
+            @*if (ViewBag.error != null)
+            {
+                <div class="text-danger">@ViewBag.error</div>
+            }*@
+
+
+
+        <div class="form-horizontal">
+            <h4>See and Edit Questions</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @if (ViewBag.error != null)
+            {
+            <div class="text-danger">@ViewBag.error</div>
+            }
+            <div class="form-group">
+                <div class="col-md-10">
+                    @*@Html.DropDownList("year", ViewBag.year as SelectList, "--Select Year--")*@
+                    <input type="text" id="year" name="year" value="" />
+                </div>
+            </div>
+            @*@Html.DropDownList("year", ViewBag.year as SelectList, "--Select Year--")*@
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Show" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+          }
+    </div>
+
+</div>
+
+        

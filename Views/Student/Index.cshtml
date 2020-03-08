@@ -1,0 +1,19 @@
+﻿
+@*@if (Session["studentlogin"] == null)
+{
+    Response.Redirect("~/Login/Index");
+}*@
+
+@{
+    ViewBag.Title = "Student";
+}
+
+
+<h2>Student Index</h2>
+
+
+@if (Session["student_id"] != null)
+{
+    <h3>Hello @Session["student_name"] </h3>
+}
+<h2>Take the Exam</h2>

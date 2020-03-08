@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Admission.Models.Question>
+
+@{
+    ViewBag.Title = "SeeQues";
+}
+
+<h2>See Questions</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+@if (ViewBag.empty != null)
+{
+    <div class="text-danger">@ViewBag.empty</div>
+}
+
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.E_Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Q_Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Op_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Op_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Op_3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Op_4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Op_5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Q_Answer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.E_Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q_Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Op_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Op_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Op_3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Op_4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Op_5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q_Answer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Q_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Q_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Q_Id })
+            </td>
+        </tr>
+    }
+
+</table>

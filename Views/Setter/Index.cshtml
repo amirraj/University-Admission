@@ -1,0 +1,224 @@
+﻿@model Admission.Models.QuestionViewModel
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+@*@if(Session["setterlogin"] == null)
+{
+    Response.Redirect("~/Login/Index");
+}*@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <!-- Title Page-->
+    <title>Online Admission - Setter</title>
+    <!-- Icons font CSS-->
+    <link href="~/Content/Register/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Register/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Vendor CSS-->
+    <link href="~/Content/Register/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Register/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="~/Content/Register/css/main.css" rel="stylesheet" media="all">
+    <link href="~/Content/Home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Online Admission</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Logout", "Login")">Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <br /><br /><br /> <br /> <br />
+        <div class="card" style="width: 55rem;">
+            <h2>Setter</h2>
+            <div class="card-body">
+                @if (Session["setter_name"] != null)
+                {
+                    <h3> <b> @Session["setter_name"] </b> </h3>
+                }
+                <form method="POST">
+                    @if (ViewBag.success_insert != null)
+                    {
+                        <div class="text-success">@ViewBag.success_insert</div>
+                    }
+                    <div class="form-row">
+                        <div class="name">Year</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @*<input class="input--style-5" type="text" name="Year">*@
+                                        @Html.EditorFor(model => model.E_Year, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.E_Year, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Question Body</div>
+                        <div class="value">
+                            <div class="input-group">
+                                @*<textarea rows="4" cols="100" name="qbody"></textarea>*@
+                                @Html.EditorFor(model => model.Q_Body, new { htmlAttributes = new { @class = "input--style-5" } })
+                                @Html.ValidationMessageFor(model => model.Q_Body, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Option A</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @*<input class="input--style-5" type="text" name="a">*@
+                                        @Html.EditorFor(model => model.Op_1, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.Op_1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Option B</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Op_2, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.Op_2, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Option C</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Op_3, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.Op_3, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Option D</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Op_4, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.Op_4, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Option E</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Op_5, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.Op_5, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="name">Correct Answer</div>
+                        <div class="value">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Q_Answer, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.Q_Answer, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn--radius-2 btn--red" type="submit">Insert</button>
+                    </div>
+                </form>
+                @*@Html.DropDownList("year", ViewBag.year as SelectList, "--Select Year--")*@
+            </div>
+        </div>
+
+        @*<div class="card" style="width: 55rem;">
+            <div class="card-body">
+                
+            </div>
+
+        </div>*@
+
+    </div>
+        <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />  <br />
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+        <script src="~/Content/Register/vendor/jquery/jquery.min.js"></script>
+        <!-- Vendor JS-->
+        <script src="~/Content/Register/vendor/select2/select2.min.js"></script>
+        <script src="~/Content/Register/vendor/datepicker/moment.min.js"></script>
+        <script src="~/Content/Register/vendor/datepicker/daterangepicker.js"></script>
+        <!-- Main JS-->
+        <script src="~/Content/Register/js/global.js"></script>
+
+        <script src="~/Content/Home/vendor/jquery/jquery.min.js"></script>
+</body>
+</html>
+
+
+
+

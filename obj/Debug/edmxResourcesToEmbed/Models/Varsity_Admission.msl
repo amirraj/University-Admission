@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VarsityAdmissionModelStoreContainer" CdmEntityContainer="Varsity_Admission">
+    <EntitySetMapping Name="Exams">
+      <EntityTypeMapping TypeName="VarsityAdmissionModel.Exam">
+        <MappingFragment StoreEntitySet="Exam">
+          <ScalarProperty Name="E_Id" ColumnName="E_Id" />
+          <ScalarProperty Name="E_Year" ColumnName="E_Year" />
+          <ScalarProperty Name="E_Queno" ColumnName="E_Queno" />
+          <ScalarProperty Name="E_Time" ColumnName="E_Time" />
+          <ScalarProperty Name="E_Passmark" ColumnName="E_Passmark" />
+          <ScalarProperty Name="E_Seat" ColumnName="E_Seat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="VarsityAdmissionModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="L_Id" ColumnName="L_Id" />
+          <ScalarProperty Name="L_Email" ColumnName="L_Email" />
+          <ScalarProperty Name="L_Password" ColumnName="L_Password" />
+          <ScalarProperty Name="L_Designation" ColumnName="L_Designation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="VarsityAdmissionModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Q_Id" ColumnName="Q_Id" />
+          <ScalarProperty Name="E_Year" ColumnName="E_Year" />
+          <ScalarProperty Name="Q_Body" ColumnName="Q_Body" />
+          <ScalarProperty Name="Op_1" ColumnName="Op_1" />
+          <ScalarProperty Name="Op_2" ColumnName="Op_2" />
+          <ScalarProperty Name="Op_3" ColumnName="Op_3" />
+          <ScalarProperty Name="Op_4" ColumnName="Op_4" />
+          <ScalarProperty Name="Op_5" ColumnName="Op_5" />
+          <ScalarProperty Name="Q_Answer" ColumnName="Q_Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Setters">
+      <EntityTypeMapping TypeName="VarsityAdmissionModel.Setter">
+        <MappingFragment StoreEntitySet="Setter">
+          <ScalarProperty Name="Se_Id" ColumnName="Se_Id" />
+          <ScalarProperty Name="Se_Name" ColumnName="Se_Name" />
+          <ScalarProperty Name="Se_Email" ColumnName="Se_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="VarsityAdmissionModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="S_Id" ColumnName="S_Id" />
+          <ScalarProperty Name="S_Name" ColumnName="S_Name" />
+          <ScalarProperty Name="S_Email" ColumnName="S_Email" />
+          <ScalarProperty Name="S_Phone" ColumnName="S_Phone" />
+          <ScalarProperty Name="S_Marks" ColumnName="S_Marks" />
+          <ScalarProperty Name="S_Attendence" ColumnName="S_Attendence" />
+          <ScalarProperty Name="E_Year" ColumnName="E_Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

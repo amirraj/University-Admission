@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VarsityAdmissionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="E_Id" />
+    </Key>
+    <Property Name="E_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="E_Year" Type="int" Nullable="false" />
+    <Property Name="E_Queno" Type="int" Nullable="false" />
+    <Property Name="E_Time" Type="int" Nullable="false" />
+    <Property Name="E_Passmark" Type="int" Nullable="false" />
+    <Property Name="E_Seat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="L_Id" />
+    </Key>
+    <Property Name="L_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="L_Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="L_Password" Type="varchar(max)" Nullable="false" />
+    <Property Name="L_Designation" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Q_Id" />
+    </Key>
+    <Property Name="Q_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="E_Year" Type="int" Nullable="false" />
+    <Property Name="Q_Body" Type="varchar(max)" Nullable="false" />
+    <Property Name="Op_1" Type="varchar(max)" Nullable="false" />
+    <Property Name="Op_2" Type="varchar(max)" Nullable="false" />
+    <Property Name="Op_3" Type="varchar(max)" Nullable="false" />
+    <Property Name="Op_4" Type="varchar(max)" Nullable="false" />
+    <Property Name="Op_5" Type="varchar(max)" />
+    <Property Name="Q_Answer" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Setter">
+    <Key>
+      <PropertyRef Name="Se_Id" />
+    </Key>
+    <Property Name="Se_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Se_Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Se_Email" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="S_Id" />
+    </Key>
+    <Property Name="S_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="S_Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="S_Email" Type="varchar(max)" Nullable="false" />
+    <Property Name="S_Phone" Type="int" Nullable="false" />
+    <Property Name="S_Marks" Type="float" />
+    <Property Name="S_Attendence" Type="int" />
+    <Property Name="E_Year" Type="int" />
+  </EntityType>
+  <EntityContainer Name="VarsityAdmissionModelStoreContainer">
+    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Setter" EntityType="Self.Setter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

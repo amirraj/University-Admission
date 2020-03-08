@@ -1,0 +1,199 @@
+﻿@model Admission.Models.StudentViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = null;
+}
+@if (Session["studentlogin"] != null || Session["setterlogin"] != null || Session["adminlogin"] != null)
+{
+    Response.Redirect("~/Home/Index");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+    <!-- Title Page-->
+    <title>Online Admission - Registration</title>
+    <!-- Icons font CSS-->
+    <link href="~/Content/Register/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Register/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Vendor CSS-->
+    <link href="~/Content/Register/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Register/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="~/Content/Register/css/main.css" rel="stylesheet" media="all">
+
+    <link href="~/Content/Home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/Content/Home/css/modern-business.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Online Admission</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Register")">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Login")">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Student Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+                        @if (ViewBag.error_msg != null)
+                        {
+                            <div class="text-danger">@ViewBag.error_msg </div>
+                        }
+
+                        @if (ViewBag.success_msg != null)
+                        {
+                            <div class="text-success">@ViewBag.success_msg</div>
+                        }
+
+                        <div class="form-row">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    @*<input class="input--style-5" type="text" name="name">*@
+                                    @*@Html.EditorFor(model => model.S_Name, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.S_Name, "", new { @class = "text-danger" })*@
+                                    <input class="input--style-5 text-box single-line" data-val="true" data-val-required="Please enter your name" id="S_Name" name="S_Name" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="S_Name" data-valmsg-replace="true"></span>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    @*<input class="input--style-5" type="email" name="email">*@
+                                    @*@Html.EditorFor(model => model.S_Email, new { htmlAttributes = new { @class = "input--style-5" } })
+                                        @Html.ValidationMessageFor(model => model.S_Email, "", new { @class = "text-danger" })*@
+                                    <input class="input--style-5 text-box single-line" data-val="true" data-val-email="Invalid Email Address" data-val-required="Please enter your E-mail" id="S_Email" name="S_Email" type="email" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="S_Email" data-valmsg-replace="true"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+
+                            <div class="name">Phone</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    @*<input class="input--style-5" type="text" name="phone">*@
+
+                                    @*@Html.TextBoxFor(model => model.S_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.S_Phone, "", new { @class = "text-danger" })*@
+
+                                    <input class="input--style-5" data-val="true" data-val-number="The field S_Phone must be a number." data-val-regex="Please enter numbers only" data-val-regex-pattern="([0-9][0-9]*)" data-val-required="Please enter your phone number" id="S_Phone" name="S_Phone" type="text" value="" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="S_Phone" data-valmsg-replace="true"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    @*<input class="input--style-5" type="password" name="L_Password">*@
+
+                                    @*@Html.PasswordFor(model => model.L_Password, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @*@Html.PasswordFor(model => model.L_Password, new { htmlAttributes = new { @class = "input--style-5" } })*@
+                                    @*@Html.ValidationMessageFor(model => model.L_Password, "", new { @class = "text-danger" })*@
+
+
+                                    <input class="input--style-5" data-val="true" data-val-required="Password is required." id="L_Password" name="L_Password" type="password" />
+
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="L_Password" data-valmsg-replace="true"></span>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="name">Confirm Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    @*<input class="input--style-5" type="password" name="confirm_password">*@
+                                    @*@Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })*@
+
+                                    <input class="input--style-5" data-val="true" data-val-equalto="Password and Confirmation Password must match." data-val-equalto-other="*.L_Password" data-val-required="Password confirmation is required." id="ConfirmPassword" name="ConfirmPassword" type="password" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- custom -->
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <!-- Jquery JS-->
+    <script src="~/Content/Register/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="~/Content/Register/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/Register/vendor/datepicker/moment.min.js"></script>
+    <script src="~/Content/Register/vendor/datepicker/daterangepicker.js"></script>
+    <!-- Main JS-->
+    <script src="~/Content/Register/js/global.js"></script>
+
+    @*<script src="~/Content/Home/vendor/jquery/jquery.min.js"></script>*@
+    <script src="~/Content/Home/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<!-- end document-->

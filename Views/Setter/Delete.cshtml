@@ -1,0 +1,88 @@
+﻿@model Admission.Models.Question
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.E_Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.E_Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Op_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Op_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Op_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Op_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Op_3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Op_3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Op_4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Op_4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Op_5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Op_5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q_Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q_Answer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
